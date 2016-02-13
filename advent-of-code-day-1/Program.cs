@@ -21,11 +21,11 @@ namespace advent_of_code_day_1
             {
                 if (chr.Equals('('))
                 {
-                    result += 1;
+                    result++;
                 }
                 if (chr.Equals(')'))
                 {
-                    result -= 1;
+                    result--;
                 }
             }
 
