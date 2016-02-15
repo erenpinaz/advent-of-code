@@ -13,24 +13,32 @@ namespace advent_of_code_day_2
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Takes the puzzle input and solves it
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Required total square feet of wrapping paper</returns>
         private static int SolvePuzzle(string[] input)
         {
-            var result = 0;
+            var totalPaper = 0;
             foreach (var dimension in input)
             {
+                // Get the present dimensions
                 var lwh = dimension.Split('x').ToArray();
 
                 var l = int.Parse(lwh[0]);
                 var w = int.Parse(lwh[1]);
                 var h = int.Parse(lwh[2]);
 
+                // Calculate the smallets side
                 var smallest = int.Parse(lwh.OrderBy(n => int.Parse(n)).First()) *
                     int.Parse(lwh.OrderBy(n => int.Parse(n)).Skip(1).First());
 
-                result += (2 * l * w + 2 * w * h + 2 * h * l) + smallest;
+                // Calculate the wrapping paper requirement
+                totalPaper += (2 * l * w + 2 * w * h + 2 * h * l) + smallest;
             }
 
-            return result;
+            return totalPaper;
         }
     }
 }

@@ -13,6 +13,10 @@ namespace advent_of_code_day_4
             SolvePuzzle(Input);
         }
 
+        /// <summary>
+        /// Takes the puzzle input and solves it
+        /// </summary>
+        /// <param name="input"></param>
         private static void SolvePuzzle(string input)
         {
             var i = 1;
@@ -35,6 +39,11 @@ namespace advent_of_code_day_4
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Generates MD5 hash value for specified string
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns>Generated MD5 hash value</returns>
         private static string GenerateMd5Hash(string source)
         {
             var sb = new StringBuilder();

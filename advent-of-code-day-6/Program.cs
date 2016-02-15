@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace advent_of_code_day_6
 {
+    /// <summary>
+    /// Light class
+    /// </summary>
     internal class Light
     {
         public bool IsLit { get; private set; }
@@ -40,8 +43,14 @@ namespace advent_of_code_day_6
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Takes the puzzle input and solves it
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Number of lights that are lit</returns>
         private static int SolvePuzzle(string[] input)
         {
+            // Prepare our grid full of lights
             var grid = new List<Light>();
             for (var i = 0; i <= 999; i++)
             {
@@ -51,16 +60,18 @@ namespace advent_of_code_day_6
                 }
             }
 
-            foreach (var s in input)
+            foreach (var instruction in input)
             {
-                var action = Regex.Match(s, @"(turn on|turn off|toggle)").Value;
-                var pos = Regex.Matches(s, @"\d{0,3}[,]\d{0,3}");
+                // Extract information from given instructions
+                var action = Regex.Match(instruction, @"(turn on|turn off|toggle)").Value;
+                var pos = Regex.Matches(instruction, @"\d{0,3}[,]\d{0,3}");
 
                 var startPosX = int.Parse(pos[0].Value.Split(',')[0]);
                 var startPosY = int.Parse(pos[0].Value.Split(',')[1]);
                 var endPosX = int.Parse(pos[1].Value.Split(',')[0]);
                 var endPosY = int.Parse(pos[1].Value.Split(',')[1]);
 
+                // Update the status of the light via it's index value
                 for (var i = startPosY; i <= endPosY; i++)
                 {
                     for (var j = startPosX; j <= endPosX; j++)
@@ -68,13 +79,13 @@ namespace advent_of_code_day_6
                         switch (action)
                         {
                             case "turn on":
-                                grid[1000*j + i].TurnOn();
+                                grid[1000 * j + i].TurnOn();
                                 break;
                             case "turn off":
-                                grid[1000*j + i].TurnOff();
+                                grid[1000 * j + i].TurnOff();
                                 break;
                             case "toggle":
-                                grid[1000*j + i].Toggle();
+                                grid[1000 * j + i].Toggle();
                                 break;
                         }
                     }

@@ -4,26 +4,20 @@ using System.Linq;
 
 namespace advent_of_code_day_3
 {
-    internal struct Coords
+    /// <summary>
+    /// House class
+    /// </summary>
+    internal class House
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
+        public int X { get; }
+        public int Y { get; }
         public bool IsVisited { get; private set; }
 
-        public Coords(int x, int y, bool isVisited)
+        public House(int x, int y)
         {
             X = x;
             Y = y;
-            IsVisited = isVisited;
-        }
-
-        public Coords Update(int x, int y, bool visited)
-        {
-            X = x;
-            Y = y;
-            IsVisited = visited;
-
-            return this;
+            IsVisited = false;
         }
 
         public void SetVisited(bool value)
@@ -42,42 +36,47 @@ namespace advent_of_code_day_3
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Takes the puzzle input and solves it
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Houses that received at least one present</returns>
         private static int SolvePuzzle(char[] input)
         {
-            var housesVisited = new List<Coords>
-            {
-                new Coords(0, 0, true)
-            };
+            // Starting house receives a present
+            var startingHouse = new House(0, 0);
 
+            var housesVisited = new List<House> { startingHouse };
             foreach (var direction in input)
             {
-                var lastCoords = housesVisited[housesVisited.Count - 1];
-
+                // Update previously visited house coordinates with every new direction
+                var lastHouse = housesVisited[housesVisited.Count - 1];
                 switch (direction)
                 {
                     case '^':
-                        lastCoords = lastCoords.Update(lastCoords.X, lastCoords.Y + 1, false);
+                        lastHouse = new House(lastHouse.X, lastHouse.Y + 1);
                         break;
                     case 'v':
-                        lastCoords = lastCoords.Update(lastCoords.X, lastCoords.Y - 1, false);
+                        lastHouse = new House(lastHouse.X, lastHouse.Y - 1);
                         break;
                     case '>':
-                        lastCoords = lastCoords.Update(lastCoords.X + 1, lastCoords.Y, false);
+                        lastHouse = new House(lastHouse.X + 1, lastHouse.Y);
                         break;
                     case '<':
-                        lastCoords = lastCoords.Update(lastCoords.X - 1, lastCoords.Y, false);
+                        lastHouse = new House(lastHouse.X - 1, lastHouse.Y);
                         break;
                 }
 
-                if (housesVisited.Contains(lastCoords))
+                // Mark the house visited if it's coordinates already in the visited list
+                // We will not include these houses in our final calculation
+                if (housesVisited.Any(h => h.X == lastHouse.X && h.Y == lastHouse.Y))
                 {
-                    lastCoords.SetVisited(true);
+                    lastHouse.SetVisited(true);
                 }
 
-                housesVisited.Add(lastCoords);
-                Console.WriteLine("Santa is at [" + lastCoords.X + ", " + lastCoords.Y + "]");
+                housesVisited.Add(lastHouse);
             }
-
+            
             return housesVisited.Count(h => h.IsVisited == false);
         }
     }

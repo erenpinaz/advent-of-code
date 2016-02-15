@@ -16,16 +16,31 @@ namespace advent_of_code_day_5
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Checks if the input contains at least 3 vowels
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private static bool CheckVowels(string input)
         {
             return Regex.Matches(input, @"[aeiou]").Count >= 3;
         }
 
+        /// <summary>
+        /// Checks if the input contains any double letters
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private static bool CheckRepeats(string input)
         {
             return Regex.Matches(input, @"(\w)\1+").Count >= 1;
         }
 
+        /// <summary>
+        /// Checks if the input contains any disallowed strings
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private static bool CheckDisallowed(string input)
         {
             return Regex.Matches(input, @"ab|cd|pq|xy").Count == 0;

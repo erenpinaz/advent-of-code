@@ -12,24 +12,31 @@ namespace advent_of_code_day_1
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Takes the puzzle input and solves it
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>The final floor</returns>
         private static int SolvePuzzle(string input)
         {
-            var result = 0;
+            // Copy directions to a unicode array
             var charArray = input.ToCharArray();
 
+            // Calculate the final floor
+            var floor = 0;
             foreach (var chr in charArray)
             {
                 if (chr.Equals('('))
                 {
-                    result++;
+                    floor++;
                 }
                 if (chr.Equals(')'))
                 {
-                    result--;
+                    floor--;
                 }
             }
 
-            return result;
+            return floor;
         }
     }
 }
