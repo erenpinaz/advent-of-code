@@ -6,40 +6,29 @@ namespace advent_of_code_day_3
 {
     internal struct Coords
     {
-        private int x { get; set; }
-        private int y { get; set; }
-        private bool visited { get; set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
+        public bool IsVisited { get; private set; }
 
-        public Coords(int x, int y, bool visited)
+        public Coords(int x, int y, bool isVisited)
         {
-            this.x = x;
-            this.y = y;
-            this.visited = visited;
-        }
-
-        public int X
-        {
-            get { return x; }
-        }
-
-        public int Y
-        {
-            get { return y; }
-        }
-
-        public bool IsVisited
-        {
-            get { return visited; }
-            set { visited = value; }
+            X = x;
+            Y = y;
+            IsVisited = isVisited;
         }
 
         public Coords Update(int x, int y, bool visited)
         {
-            this.x = x;
-            this.y = y;
-            this.visited = visited;
+            X = x;
+            Y = y;
+            IsVisited = visited;
 
             return this;
+        }
+
+        public void SetVisited(bool value)
+        {
+            IsVisited = value;
         }
     }
 
@@ -82,7 +71,7 @@ namespace advent_of_code_day_3
 
                 if (housesVisited.Contains(lastCoords))
                 {
-                    lastCoords.IsVisited = true;
+                    lastCoords.SetVisited(true);
                 }
 
                 housesVisited.Add(lastCoords);
