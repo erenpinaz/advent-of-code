@@ -10,7 +10,7 @@ namespace advent_of_code_day_7
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Program emulates the whole circuit and is not well-optimized.");
+            Console.WriteLine("Program emulates the whole circuit and is not well-optimized yet.");
             Console.WriteLine("Please wait while the signal is calculated.");
 
             Console.WriteLine(SolvePuzzle(Input.Split(';').ToList()));
