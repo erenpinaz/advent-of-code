@@ -37,7 +37,7 @@ namespace advent_of_code_day_3
         }
 
         /// <summary>
-        /// Takes the puzzle input and solves it
+        /// Solves the puzzle input
         /// </summary>
         /// <param name="input"></param>
         /// <returns>Houses that received at least one present</returns>

@@ -14,7 +14,7 @@ namespace advent_of_code_day_2
         }
 
         /// <summary>
-        /// Takes the puzzle input and solves it
+        /// Solves the puzzle input
         /// </summary>
         /// <param name="input"></param>
         /// <returns>Required total square feet of wrapping paper</returns>

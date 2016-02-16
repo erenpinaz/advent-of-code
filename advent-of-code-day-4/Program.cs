@@ -14,7 +14,7 @@ namespace advent_of_code_day_4
         }
 
         /// <summary>
-        /// Takes the puzzle input and solves it
+        /// Solves the puzzle input
         /// </summary>
         /// <param name="input"></param>
         private static void SolvePuzzle(string input)

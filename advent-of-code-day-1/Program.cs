@@ -13,7 +13,7 @@ namespace advent_of_code_day_1
         }
 
         /// <summary>
-        /// Takes the puzzle input and solves it
+        /// Solves the puzzle input
         /// </summary>
         /// <param name="input"></param>
         /// <returns>The final floor</returns>
