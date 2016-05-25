@@ -8,7 +8,7 @@ namespace advent_of_code_day_4
     {
         private const string Input = "ckczppom";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             SolvePuzzle(Input);
         }

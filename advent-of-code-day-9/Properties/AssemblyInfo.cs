@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("advent-of-code-day-1")]
+[assembly: AssemblyTitle("advent-of-code-day-9")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("advent-of-code-day-1")]
+[assembly: AssemblyProduct("advent-of-code-day-9")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("4072be30-dd82-4d12-8dd3-c739c0d4fc5f")]
+[assembly: Guid("29a988a1-453b-441e-950e-8a87254fba34")]
 
 // Version information for an assembly consists of the following four values:
 //

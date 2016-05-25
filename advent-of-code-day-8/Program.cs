@@ -7,7 +7,7 @@ namespace advent_of_code_day_8
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine(SolvePuzzle(ReadInput("input.txt")));
             Console.ReadLine();
@@ -17,7 +17,7 @@ namespace advent_of_code_day_8
         /// Solves the puzzle input
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns>String code - String characters</returns>
         private static int SolvePuzzle(IEnumerable<string> input)
         {
             int escapedCount = 0, unescapedCount = 0;
@@ -35,7 +35,7 @@ namespace advent_of_code_day_8
         /// Reads the puzzle input from the file
         /// </summary>
         /// <param name="path"></param>
-        /// <returns>List of lines of a given text file</returns>
+        /// <returns>Each line of a given text file</returns>
         private static IEnumerable<string> ReadInput(string path)
         {
             using (var reader = new StreamReader(path))
